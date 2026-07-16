@@ -20,13 +20,23 @@ validation dataloaders, a model, a loss function, and pick an optimizer.
 
 ```python
 from torch import nn
-from torch.optim import Adam
+from torch.optim import SGD
 
+training_data = # define your dataset
+test_data # define your test set
+
+# pass datasets into your dataloaders
+train_loader = DataLoader(training_data, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_data, batch_size=batch_size)
+
+# an example model
 model = nn.Sequential(nn.Flatten(), nn.Linear(28 * 28, 128), nn.ReLU(), nn.Linear(128, 10))
-loss_fn = nn.CrossEntropyLoss()
-optimizer = Adam(model.parameters(), lr=1e-3)
 
-# train_loader, val_loader = ... your DataLoaders
+# define your loss function
+loss_fn = nn.CrossEntropyLoss()
+
+# select an optimization algorithm
+optimizer = SGD(model.parameters(), lr=1e-3)
 ```
 
 ## Instantiate a Trainer
@@ -43,15 +53,15 @@ trainer = Trainer(
 )
 ```
 
-By default the device is picked automatically (CUDA → MPS → CPU). Pass
-`device="cpu"` (or `"cuda"`, `"mps"`) to override this option.
+By default the device is picked automatically. Pass `device="cpu"` (or `"cuda"`,
+`"mps"`) to override this option.
 
 ### Using a learning-rate scheduler
 
-LR schedulers are stepped once per epoch by default.
+Learning rate schedulers are stepped once per epoch by default.
 
-`step_scheduler_per_batch=True` allows for more frequent steps and updates the learning rate scheduler after training every
-batch.
+`step_scheduler_per_batch=True` allows for more frequent steps and updates the
+learning rate scheduler after training every batch.
 
 ```python
 from torch.optim.lr_scheduler import StepLR
@@ -74,9 +84,11 @@ trainer = Trainer(
 trainer.fit(num_epochs=10)
 ```
 
-Each epoch runs a training pass and a validation pass, printing the loss and
-accuracy for both. Losses and accuracies are also recorded in a
-`trainer.history` dict for plotting.
+During each epoch, we run a training pass and a validation pass, printing the
+loss and accuracy for both.
+
+Losses and accuracies are also recorded in a `trainer.history` dict for
+plotting.
 
 `fit()` also accepts:
 

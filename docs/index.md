@@ -10,7 +10,7 @@ A PyTorch training loop, written once and no more.
 Microflame handles the training and validation loop, device placement, checkpointing, and plotting so you can focus on writing the model and not the boilerplate
 
 !!! info ""
-    Microflame is a very thin wrapper around PyTorch, and is in no way a replacement. If you are new to Pytorch, check out the tutorials [here](https://pytorch.org/tutorials/) first.
+    Microflame is a very thin wrapper around PyTorch, and is not intended to replace it fully. If you are unfamiliar with [Pytorch](https://docs.pytorch.org/docs/2.13/index.html), check out the tutorials [here](https://pytorch.org/tutorials/).
 
 ## Installation
 
