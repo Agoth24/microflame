@@ -4,8 +4,24 @@ build-backend = "hatchling.build"
 
 [project]
 name = "microflame"
-version = "0.1.0"
+version = "0.1.1"
+description = "A minimal PyTorch training loop with checkpointing, resuming, and plotting built in."
 requires-python = ">=3.10"
 license = "MIT"
+authors = [{ name = "Agoth Arop" }]
+keywords = ["pytorch", "training", "deep-learning", "machine-learning", "trainer"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = ["torch>=2.0", "tqdm>=4.0", "matplotlib>=3.0"]
 readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/agoth24/microflame"
+Repository = "https://github.com/agoth24/microflame"

@@ -40,7 +40,7 @@ class Trainer:
             "val_accuracy": [],
         }
 
-    def accuracy(prediction, target):
+    def accuracy(self, prediction, target):
         return (prediction.argmax(1) == target).float().mean().item()
 
     def _train_loop(self, current_epoch: int, num_epochs: int):
