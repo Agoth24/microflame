@@ -1,0 +1,28 @@
+site_name: microflame
+theme:
+  name: shadcn
+  show_title: true
+  show_stargazers: true
+  pygments_style:
+        light: nord-darker
+        dark: nord-darker
+  icon: heroicons:fire
+  topbar_sections: false 
+  katex_options:
+    macros:
+      "\\RR": "\\mathbb{R}" 
+      "\\dx": "\\mathrm{d}x"
+  show_datetime: false
+  accent: "oklch(64.5% 0.246 16.439)"
+
+markdown_extensions:
+  - codehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      css_class: codehilite
+  - pymdownx.superfences
+  - admonition
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
