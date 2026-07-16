@@ -5,7 +5,7 @@ theme:
   show_stargazers: true
   pygments_style:
         light: xcode
-        dark: nord-darker
+        dark: github-dark
   icon: solar:flame-outline
   favicon: assets/solar--flame-outline.svg
   topbar_sections: false 
